@@ -15,7 +15,7 @@ export PATH=/home/vagrant/Gitify/:$PATH
 source ~/.profile
 
 # install dependencies and make executable
-composer install
+composer install --no-dev
 sudo chmod +X Gitify
 
 # Now let's set up gitify in the www-folder:
