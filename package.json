@@ -1,0 +1,24 @@
+{
+	"name": "modx-gitify-vagrantD",
+	"version": "1.0.0",
+	"description": "_You need to have [Vagrant](https://www.vagrantup.com/) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads) installed on your computer_",
+	"main": "index.js",
+	"scripts": {
+		"v": "sh v.sh",
+		"up": "sh v.sh -u",
+		"halt": "sh v.sh -h",
+		"enter": "sh v.sh -s",
+		"destroy": "sh v.sh -d"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/frankie-tech/modx-gitify-vagrant.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/frankie-tech/modx-gitify-vagrant/issues"
+	},
+	"homepage": "https://github.com/frankie-tech/modx-gitify-vagrant#readme"
+}
