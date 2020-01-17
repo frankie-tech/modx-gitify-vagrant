@@ -7,6 +7,10 @@ fi
 while getopts :ushd option
 do
 case "${option}" in
+    c)
+        vagrant global-status
+        exit 0
+        ;;
     u)
         vagrant up
         exit 0
