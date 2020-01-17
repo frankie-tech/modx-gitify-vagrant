@@ -1,23 +1,27 @@
 #! /bin/bash
-if ! [[ $PWD = [^/vagrant$] ]]; then
+if ! [[ "$PWD" == [/vagrant$] ]]; then
     echo "Moving to right directory"
-    cd $PWD/vagrant
+    echo "$PWD -> $PWD/vagrant"
+    cd ./vagrant
+    echo "Now in $PWD"
 fi
 
-while getopts :ushd option
+STATUS=0
+while getopts :cushd option
 do
 case "${option}" in
     c)
-        vagrant global-status
-        exit 0
+        vagrant status
+        #? Why will this not echo the status?
+        #? Can this be echoed outside of the loop?
+        # STATUS=$(($?))
+        # echo $STATUS
         ;;
     u)
         vagrant up
-        exit 0
         ;;
     s)
         vagrant ssh
-        exit 0
         ;;
     h)
         vagrant halt
@@ -26,6 +30,15 @@ case "${option}" in
     d)
         vagrant destroy
         exit 0
+        ;;
+    \?)
+        echo -e "Invalid option: $@ is not a valid option"
+        echo -e "Valid options are:"
+        echo -e "    -c"
+        echo -e "    -u"
+        echo -e "    -s"
+        echo -e "    -h: Halts Vagrant VM to be used later, will be listed as "
+        echo -e "    -d: Destroys Vagrant VM, will be listed as 'not created' by \`vagrant global-status\`"
         ;;
     *)
         echo -e "there has been an error"
